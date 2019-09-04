@@ -1,0 +1,27 @@
+#containter {
+    background-color: salmon;
+}
+
+.gem {
+    background-color: aliceblue;
+    padding: 30px 30px;
+}
+
+#WL {
+    background-color: aliceblue;
+    max-width: 20%;
+}
+
+
+#RandomNumBox{
+    width: 20%;
+    height: 20%;
+    background-color: aliceblue;
+}
+
+#CurrentTotalNumBox{
+    width: 20%;
+    height: 20%;
+    background-color: aliceblue;
+
+}
