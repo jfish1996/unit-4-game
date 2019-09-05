@@ -40,7 +40,7 @@ $(document).ready(function () {
     firstGenNum.text(randomNumber);
 
     //assigning values to each one of the gems on page load up
-    gemOneVal = 1;
+    gemOneVal = Math.floor(Math.random() * 20) + 1;
     console.log("gem 1: " + gemOneVal)
 
     gemTwoVal = Math.floor(Math.random() * 40) + 1;
@@ -56,14 +56,14 @@ $(document).ready(function () {
     console.log("gem 4: " + gemFourVal)
     //------------------------------------------------------
 
-
+//function to run if game has been won or lost-----------
     function restGame(){
 
     currentVal = 0;
 
     CurrentValText.text(currentVal)
 
-    gemOneVal = 1;
+    gemOneVal = Math.floor(Math.random() * 20) + 1;
     console.log("gem 1: " + gemOneVal)
 
     gemTwoVal = Math.floor(Math.random() * 40) + 1;
@@ -79,7 +79,8 @@ $(document).ready(function () {
     console.log("gem 4: " + gemFourVal)
 
         //number to hit
-    var randomNumber = Math.floor(Math.random() * 120) + 1
+        randomNumber = 0;
+        randomNumber = Math.floor(Math.random() * 120) + 1
 
         //number to hit on the DOM
     firstGenNum.text(randomNumber);
@@ -88,11 +89,12 @@ $(document).ready(function () {
 
     console.log("current Val: " + currentVal);
     };
+    //-----------------------------------------
 
-    //on click events;
+    //on click events---------------------------
 
     gemOne.on("click", function () {
-        currentVal = currentVal + gemOneVal;
+        currentVal += gemOneVal;
         console.log(currentVal)
         CurrentValText.text(currentVal);
         checkWin()
@@ -101,7 +103,7 @@ $(document).ready(function () {
     })
 
     gemTwo.on("click", function () {
-        currentVal = currentVal + gemTwoVal;
+        currentVal += gemTwoVal;
         console.log(currentVal)
         CurrentValText.text(currentVal);
         checkWin()
@@ -110,7 +112,7 @@ $(document).ready(function () {
     })
 
     gemThree.on("click", function () {
-        currentVal = currentVal + gemThreeVal;
+        currentVal += gemThreeVal;
         console.log(currentVal)
         CurrentValText.text(currentVal);
         checkWin()
@@ -119,35 +121,37 @@ $(document).ready(function () {
     })
 
     gemFour.on("click", function () {
-        currentVal = currentVal + gemFourVal;
+        currentVal += gemFourVal;
         console.log(currentVal)
         CurrentValText.text(currentVal);
         checkWin()
         
 
     })
+//------------------------------------------
 
+//function to check if users has won or lost
     function checkWin(){
 
     if(currentVal === randomNumber){
         console.log("yay!!!!!")
+        alert("You got it!")
         WinsInt++
         WinsEL.text(WinsInt)
         restGame();
 
     } else if(currentVal > randomNumber){
         console.log("aw MAAAAAAAAAAAAAN")
+        alert("Better luck next time!")
         LossesInt++
         LossesEL.text(LossesInt);
         restGame();
+    };
 
         
-    }else {
-        return
-    }
-    
+
 }
 
-
+//-------------------------------------
 
 });
